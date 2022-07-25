@@ -1244,11 +1244,11 @@ namespace dynamic_gap{
             lg_marker.pose.position.x = g.goal.x;
             lg_marker.pose.position.y = g.goal.y;
             lg_marker.color = gapwp_color;
-            ROS_INFO_STREAM("visualizing initial goal: " << g.goal.x << ", " << g.goal.y);
+            // ROS_INFO_STREAM("visualizing initial goal: " << g.goal.x << ", " << g.goal.y);
         } else {
             lg_marker.pose.position.x = g.terminal_goal.x;
             lg_marker.pose.position.y = g.terminal_goal.y; 
-            ROS_INFO_STREAM("visualizing terminal goal: " << g.terminal_goal.x << ", " << g.terminal_goal.y);
+            // ROS_INFO_STREAM("visualizing terminal goal: " << g.terminal_goal.x << ", " << g.terminal_goal.y);
             lg_marker.color = terminal_gapwp_color;
         }
         lg_marker.pose.position.z = 0.5;

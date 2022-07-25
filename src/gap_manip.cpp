@@ -22,8 +22,8 @@ namespace dynamic_gap {
 
     void GapManipulator::updateDynamicEgoCircle(std::vector<dynamic_gap::Gap> curr_raw_gaps, 
                                                 dynamic_gap::Gap& gap,
-                                                std::vector<geometry_msgs::Pose> & _agent_odoms, 
-                                                std::vector<geometry_msgs::Vector3Stamped> _agent_vels,
+                                                std::vector<std::vector<double>> & _agent_odoms, 
+                                                std::vector<std::vector<double>> _agent_vels,
                                                 dynamic_gap::TrajectoryArbiter * trajArbiter) {
         dynamic_scan = *static_msg.get();
         double t_i = 0.0;

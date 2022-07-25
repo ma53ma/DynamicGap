@@ -26,10 +26,9 @@ namespace dynamic_gap {
 
             Matrix<double, 4, 1> x; // cartesian state
             Matrix<double, 4, 1> x_ground_truth; // "ground truth" cartesian state
+            Matrix<double, 4, 1> new_x; // tmp matrix
 
             Matrix<double, 4, 1> frozen_x;
-            Matrix<double, 4, 1> copied_x;
-            Matrix<double, 4, 1> extended_origin_x;
             Matrix<double, 4, 4> P; // covariance matrix
             Matrix<double, 4, 2> G; // kalman gain
 
@@ -37,7 +36,7 @@ namespace dynamic_gap {
             Matrix<double, 2, 1> innovation;
             Matrix<double, 2, 1> residual;
 
-            double t0;
+            double t_min1;
             double t;
             double dt;
 
@@ -68,16 +67,16 @@ namespace dynamic_gap {
             std::string plot_dir;
 
             std::vector< std::vector<double>> agent_odoms;
-            std::vector<geometry_msgs::Vector3Stamped> agent_vels;
+            std::vector< std::vector<double>> agent_vels;
 
             bool perfect;
             double alpha_R;
             std::default_random_engine generator;
+            bool print;
 
         public:
 
             cart_model(std::string, int, double, double, Matrix<double, 1, 3>);
-            // cart_model(const dynamic_gap::cart_model &model);
 
             void initialize(double, double, Matrix<double, 1, 3>);
 
@@ -100,7 +99,7 @@ namespace dynamic_gap {
                                 Matrix<double, 1, 3> a_ego, Matrix<double, 1, 3> v_ego, 
                                 bool print,
                                 std::vector< std::vector<double>> _agent_odoms,
-                                std::vector<geometry_msgs::Vector3Stamped> _agent_vels);
+                                std::vector< std::vector<double>> _agent_vels);
             void set_side(std::string _side);
             std::string get_side();
             int get_index();

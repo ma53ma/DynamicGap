@@ -78,13 +78,5 @@
       
   </node>
 
-  <arg name="model" default="STDR" />
-  <param name="model" value="$(arg model)"/>
-
-  <node pkg="turtlebot3_teleop" type="turtlebot3_teleop_key" name="turtlebot3_teleop_keyboard"  output="screen">
-
-	<remap from="/cmd_vel" to="$(arg vel_topic)"/>
-  </node>
-
    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find dynamic_gap)/config/dgap.rviz"/>
 </launch>
